@@ -103,8 +103,8 @@ def get_progress_bar_string(status):
     p = 0 if total == 0 else round(completed * 100 / total)
     p = min(max(p, 0), 100)
     cFull = p // 9
-    p_str = '▰' * cFull
-    p_str += '▱' * (11 - cFull)
+    p_str = '✪' * cFull
+    p_str += '○' * (11 - cFull)
     p_str = f"[{p_str}]"
     return p_str
 
@@ -121,6 +121,7 @@ def get_readable_message():
                 globals()['PAGE_NO'] -= 1
             start = COUNT
         for index, download in enumerate(list(download_dict.values())[start:], start=1):
+            msg += f"<b>••༺WINTER-BOT༻••</b> \n\n"
             msg += f"<b>Name:</b> <code>{download.name()}</code>"
             msg += f"\n<b>Status:</b> <i>{download.status()}</i>"
             if download.status() not in [
